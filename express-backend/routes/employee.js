@@ -17,7 +17,7 @@ router.get('/employee/all', all);
 // router.get('/employee/create', employee_create_get);
 
 // POST request for creating employee.
-router.post('/employee/create', employee_create_post);
+router.post('/employee/add', employee_create_post);
 
 // GET request to delete employee.
 router.get('/employee/delete', employee_delete_get);

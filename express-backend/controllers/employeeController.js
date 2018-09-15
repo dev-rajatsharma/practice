@@ -39,7 +39,7 @@ export const all = (req, res) => {
 // };
 
 export const employee_create_post = function (req, res) {
-    // Employee.create(req.body)
+    // Employee.create(req.body,(err, result) => res.send('record created'))
     Employee.create(createRecord, (err, result) => res.send('record created'))
 };
 

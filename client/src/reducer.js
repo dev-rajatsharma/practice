@@ -26,5 +26,13 @@ export default createReducer(initialState, {
             data
         }
     },
+    ['SAVE_DATA' + '_FULFILLED'](state, action) {
+        let data = action.payload.data
+        console.log(data)
+        return {
+            ...state,
+        }
+    },
+
     
 })

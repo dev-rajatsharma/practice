@@ -16,7 +16,6 @@ class Dashboard extends Component {
     this.actions.getData({ 'url': '/employee/all' })
   }
 
-
   render() {
     let { data } = this.props.reducer
     // data = data.map((item,index)=>{
@@ -24,7 +23,7 @@ class Dashboard extends Component {
     //   item['delete'] = 'yes'
     // })
     return (
-      <main className="App">
+      <main className="container">
         <ReactTable data={data}
           columns={[
             {
