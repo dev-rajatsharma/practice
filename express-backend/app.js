@@ -29,6 +29,19 @@ app.use(cookieParser());
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+//Set up default mongoose connection
+const mongoDB = 'mongodb://zetwerk-code-rajat:zetwerkcode12345@ds237610.mlab.com:37610/zetwerk-mongodb';
+mongoose.connect(mongoDB, { useNewUrlParser: true });
+// Get Mongoose to use the global promise library
+mongoose.Promise = global.Promise;
+//Get the default connection
+var db = mongoose.connection;
+
+//Bind connection to error event (to get notification of connection errors)
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
+
 // app.use('/', index);
 app.use('/', employee)
 app.use('/users', users);
@@ -58,15 +71,5 @@ process.on('uncaughtException', (err) => {
   process.exit(1);
 });
 
-//Set up default mongoose connection
-const mongoDB = 'mongodb://zetwerk-code-rajat:zetwerkcode12345@ds237610.mlab.com:37610/zetwerk-mongodb';
-mongoose.connect(mongoDB, { useNewUrlParser: true });
-// Get Mongoose to use the global promise library
-mongoose.Promise = global.Promise;
-//Get the default connection
-var db = mongoose.connection;
-
-//Bind connection to error event (to get notification of connection errors)
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 export default app;
