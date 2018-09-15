@@ -7,7 +7,7 @@ import Update from './Update'
 import axios from 'axios'
 
 class App extends Component {
-  
+
 
   render() {
     return (
@@ -18,7 +18,6 @@ class App extends Component {
           <Route exact path='/employee/edit' render={() => <Update.js />} />
           <Route exact path='/employee' render={() => <Redirect to='/employee/all' />} />
           <Route exact path='/' render={() => <Redirect to='/employee/all' />} />
-
         </Switch>
       </main>
     );

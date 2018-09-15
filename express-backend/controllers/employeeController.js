@@ -32,7 +32,6 @@ export const all = (req, res) => {
 // };
 
 export const employee_create_post = function (req, res) {
-    // res.send('NOT IMPLEMENTED: Employee list');
     Employee.create(req.body)
 };
 

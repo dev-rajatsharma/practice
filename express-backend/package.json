@@ -4,7 +4,7 @@
   "private": true,
   "main": "app.js",
   "scripts": {
-    "start": "nodemon ./bin/start"
+    "start": "node ./bin/start"
   },
   "dependencies": {
     "babel-core": "^6.26.3",
