@@ -21,10 +21,13 @@ class Add extends React.Component {
         }
         return record
     }
-    renderSkills = (skills = []) => {
+    renderSkills = (skills) => {
+        skills = skills ? skills : ['skill1', 'skill2', 'skill3', 'skill4', 'skill5', 'skill6', 'skill7', 'skill8', 'skill9', 'skill10']
         return (
             skills.map((item, index) => {
-                <input type='checkbox' name={`skill${index}`} value={item} onchange={(e) => this.handleCheckbox(e)} />
+                return <td><label htmlFor={item}>{item}</label>
+                    <input type='checkbox' id={item} name={`skill${index}`} value={item} onchange={(e) => this.handleCheckbox(e)} />
+                </td>
             })
         )
     }
@@ -46,11 +49,11 @@ class Add extends React.Component {
         let { data } = this.props.reducer
         e.preventDefault()
         let dummyData = {
-            'id':2,
-            'name':'frg',
-            'dateOfBirth':'2017-2-3',
-            'salary':400,
-            'skills':['e','g','t']
+            'id': 2,
+            'name': 'frg',
+            'dateOfBirth': '2017-2-3',
+            'salary': 400,
+            'skills': ['e', 'g', 't']
         }
         this.actions.saveData({ 'url': '/employee/add', 'record': dummyData })
     }
@@ -64,7 +67,7 @@ class Add extends React.Component {
                         <tr style={{ margin: '5px' }}><td>Name</td><td><input name='name' value={data.name} onChange={(e) => this.handleChange(e)} /></td></tr>
                         <tr style={{ margin: '5px' }}><td>Date of Birth</td><td><input type='date' name='dateOfBirth' value={data.dateOfBirth} onChange={(e) => this.handleChange(e)} /></td></tr>
                         <tr style={{ margin: '5px' }}><td>Salary</td><td><input type='number' name='salary' value={data.salary} onChange={(e) => this.handleChange(e)} /></td></tr>
-                        <tr style={{ margin: '5px' }}><td>Skills</td><td>{this.renderSkills(data.skills)}</td></tr>
+                        <tr style={{ margin: '5px' }}><td>Skills</td>{this.renderSkills(data.skills)}</tr>
                     </tbody>
                 </table>
                 <input type='submit' />

@@ -4,6 +4,7 @@ import "react-table/react-table.css";
 import { connect } from "react-redux";
 import * as actions from './actions.js'
 import { bindActionCreators } from "redux";
+import './dashboard.css'
 
 class Dashboard extends Component {
   constructor(props) {
@@ -24,6 +25,7 @@ class Dashboard extends Component {
     // })
     return (
       <main className="container">
+      <button type='btn btn-warning float-right' onClick={()=>window.location.href='/employee/add'}>Add record</button>
         <ReactTable data={data}
           columns={[
             {
